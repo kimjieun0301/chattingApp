@@ -1,0 +1,16 @@
+C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\chattingApp.exe.config
+C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\chattingApp.exe
+C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\chattingApp.pdb
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.AssemblyReference.cache
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.Properties.Resources.resources
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.GenerateResource.cache
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.CoreCompileInputs.cache
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.exe
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.pdb
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.startLogin.resources
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.memberJoin.resources
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.memchatList.resources
+C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\EntLibContrib.Data.Tibero.dll
+C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\Tibero.DataAccess.dll
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.CopyComplete
