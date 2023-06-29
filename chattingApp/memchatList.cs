@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace chattingApp
 {
-    public partial class LoginForm : Form
+    public partial class memchatList : Form
     {
-        public LoginForm()
+        public memchatList()
         {
             InitializeComponent();
-        }
-
-        private void login_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
