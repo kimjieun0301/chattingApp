@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace chattingApp
 {
-    public partial class startLogin : Form
+    public partial class StartLogin : Form
     {
         #region init
         private OleDbConnection LocalConn;
-        public startLogin()
+        public StartLogin()
         {
             InitializeComponent();
         }
@@ -54,9 +54,13 @@ namespace chattingApp
                     MessageBox.Show("등록되지 않은 ID 입니다.");
                     return;
                 }
-                Form f = new Form();
-                f.Text = "로그인 OK";
-                f.ShowDialog();
+                //Form f = new Form();
+                //f.Text = "로그인 OK";
+                //f.ShowDialog();
+                this.Hide();
+                MemchatList memchatList1 = new MemchatList();
+                //this.DialogResult = DialogResult.OK;
+                memchatList1.Show();
 
             }
 
@@ -81,7 +85,7 @@ namespace chattingApp
         {
             this.Hide();
 
-            memberJoin memberJoin1 = new memberJoin();
+            MemberJoin memberJoin1 = new MemberJoin();
             this.DialogResult = DialogResult.OK;
             memberJoin1.Show();
         }

@@ -14,3 +14,5 @@ C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.memcha
 C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\EntLibContrib.Data.Tibero.dll
 C:\Users\marie\source\repos\chattingApp\chattingApp\bin\Debug\Tibero.DataAccess.dll
 C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.csproj.CopyComplete
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.chatRoom.resources
+C:\Users\marie\source\repos\chattingApp\chattingApp\obj\Debug\chattingApp.PickMember.resources

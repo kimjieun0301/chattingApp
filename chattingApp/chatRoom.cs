@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace chattingApp
 {
-    public partial class MemberJoin : Form
+    public partial class chatRoom : Form
     {
-        public MemberJoin()
+        public chatRoom()
         {
             InitializeComponent();
-        }
-
-        private void btnJoin_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace chattingApp
 {
-    partial class memberJoin
+    partial class MemberJoin
     {
         /// <summary>
         /// Required designer variable.

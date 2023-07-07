@@ -14,7 +14,9 @@ namespace chattingApp
         public static OleDbConnection DBConnection()
 		{
 			OleDbConnection Conn;
-			string ConStr = "Provider=tbprov.Tbprov.6; Data Source =localhost, 8629, tibero; User ID = sys; Password=tibero;"
+            //string ConStr = "Provider=tbprov.Tbprov.6; Data Source =localhost, 8629, tibero; User ID = sys; Password=tibero;"
+            //  + "Persist Security Info = True";
+            string ConStr = "Provider=tbprov.Tbprov.6; Location=127.0.0.1,8629; Data Source=tibero;User ID=sys;Password=tibero;"
                + "Persist Security Info = True";
             Conn = new OleDbConnection(ConStr);
 			return Conn;

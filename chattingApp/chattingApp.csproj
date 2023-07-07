@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -52,35 +52,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="chatRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chatRoom.Designer.cs">
+      <DependentUpon>chatRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common_DB.cs" />
-    <Compile Include="memberJoin.cs">
+    <Compile Include="CsMemList.cs" />
+    <Compile Include="MemberJoin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="memberJoin.Designer.cs">
-      <DependentUpon>memberJoin.cs</DependentUpon>
+    <Compile Include="MemberJoin.Designer.cs">
+      <DependentUpon>MemberJoin.cs</DependentUpon>
     </Compile>
-    <Compile Include="memchatList.cs">
+    <Compile Include="MemchatList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="memchatList.Designer.cs">
-      <DependentUpon>memchatList.cs</DependentUpon>
+    <Compile Include="MemchatList.Designer.cs">
+      <DependentUpon>MemchatList.cs</DependentUpon>
     </Compile>
-    <Compile Include="startLogin.cs">
+    <Compile Include="PickMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="startLogin.Designer.cs">
-      <DependentUpon>startLogin.cs</DependentUpon>
+    <Compile Include="PickMember.Designer.cs">
+      <DependentUpon>PickMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartLogin.Designer.cs">
+      <DependentUpon>StartLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="memberJoin.resx">
-      <DependentUpon>memberJoin.cs</DependentUpon>
+    <EmbeddedResource Include="chatRoom.resx">
+      <DependentUpon>chatRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="memchatList.resx">
-      <DependentUpon>memchatList.cs</DependentUpon>
+    <EmbeddedResource Include="MemberJoin.resx">
+      <DependentUpon>MemberJoin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="startLogin.resx">
-      <DependentUpon>startLogin.cs</DependentUpon>
+    <EmbeddedResource Include="MemchatList.resx">
+      <DependentUpon>MemchatList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PickMember.resx">
+      <DependentUpon>PickMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartLogin.resx">
+      <DependentUpon>StartLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
