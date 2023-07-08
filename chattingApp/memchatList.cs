@@ -85,5 +85,12 @@ namespace chattingApp
             this.DialogResult = DialogResult.OK;
             PickMember1.Show();
         }
+
+        private void BtnChatRoom_Click(object sender, EventArgs e)
+        {
+            chatRoom chatRoom1 = new chatRoom();
+            this.DialogResult = DialogResult.OK;
+            chatRoom1.Show();
+        }
     }
 }

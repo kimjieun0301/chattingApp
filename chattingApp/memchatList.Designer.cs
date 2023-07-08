@@ -41,6 +41,7 @@
             this.memPos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.memDept = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BtnMkChat = new System.Windows.Forms.Button();
+            this.BtnChatRoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -153,11 +154,22 @@
             this.BtnMkChat.UseVisualStyleBackColor = true;
             this.BtnMkChat.Click += new System.EventHandler(this.BtnMkChat_Click);
             // 
+            // BtnChatRoom
+            // 
+            this.BtnChatRoom.Location = new System.Drawing.Point(23, 402);
+            this.BtnChatRoom.Name = "BtnChatRoom";
+            this.BtnChatRoom.Size = new System.Drawing.Size(111, 65);
+            this.BtnChatRoom.TabIndex = 11;
+            this.BtnChatRoom.Text = "채팅방 테스트 버튼";
+            this.BtnChatRoom.UseVisualStyleBackColor = true;
+            this.BtnChatRoom.Click += new System.EventHandler(this.BtnChatRoom_Click);
+            // 
             // MemchatList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 743);
+            this.Controls.Add(this.BtnChatRoom);
             this.Controls.Add(this.BtnMkChat);
             this.Controls.Add(this.memchatListview);
             this.Controls.Add(this.textBox1);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.ColumnHeader memDept;
         private System.Windows.Forms.ColumnHeader memId;
         private System.Windows.Forms.Button BtnMkChat;
+        private System.Windows.Forms.Button BtnChatRoom;
     }
 }

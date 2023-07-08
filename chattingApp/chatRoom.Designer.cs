@@ -28,31 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MsgList = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnSendMsg = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.TxtMessage = new System.Windows.Forms.TextBox();
+            this.ChatMsg = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChatMemNm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // MsgList
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 49);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(439, 449);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 515);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(439, 112);
-            this.textBox1.TabIndex = 1;
+            this.MsgList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ChatMsg,
+            this.ChatMemNm});
+            this.MsgList.HideSelection = false;
+            this.MsgList.Location = new System.Drawing.Point(12, 49);
+            this.MsgList.Name = "MsgList";
+            this.MsgList.Size = new System.Drawing.Size(439, 449);
+            this.MsgList.TabIndex = 0;
+            this.MsgList.UseCompatibleStateImageBehavior = false;
+            this.MsgList.View = System.Windows.Forms.View.Tile;
             // 
             // button1
             // 
@@ -64,14 +62,15 @@
             this.button1.Text = "→]";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BtnSendMsg
             // 
-            this.button2.Location = new System.Drawing.Point(326, 633);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 51);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "전송";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnSendMsg.Location = new System.Drawing.Point(326, 633);
+            this.BtnSendMsg.Name = "BtnSendMsg";
+            this.BtnSendMsg.Size = new System.Drawing.Size(125, 51);
+            this.BtnSendMsg.TabIndex = 3;
+            this.BtnSendMsg.Text = "전송";
+            this.BtnSendMsg.UseVisualStyleBackColor = true;
+            this.BtnSendMsg.Click += new System.EventHandler(this.BtnSendMsg_Click);
             // 
             // button3
             // 
@@ -101,18 +100,36 @@
             this.button5.Text = "+";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // TxtMessage
+            // 
+            this.TxtMessage.Location = new System.Drawing.Point(12, 504);
+            this.TxtMessage.Multiline = true;
+            this.TxtMessage.Name = "TxtMessage";
+            this.TxtMessage.Size = new System.Drawing.Size(439, 123);
+            this.TxtMessage.TabIndex = 7;
+            // 
+            // ChatMsg
+            // 
+            this.ChatMsg.Text = "대화";
+            this.ChatMsg.Width = 250;
+            // 
+            // ChatMemNm
+            // 
+            this.ChatMemNm.Text = "이름";
+            this.ChatMemNm.Width = 0;
+            // 
             // chatRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 688);
+            this.Controls.Add(this.TxtMessage);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnSendMsg);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.MsgList);
             this.Name = "chatRoom";
             this.Text = "채팅방";
             this.ResumeLayout(false);
@@ -122,12 +139,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView MsgList;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnSendMsg;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox TxtMessage;
+        private System.Windows.Forms.ColumnHeader ChatMemNm;
+        private System.Windows.Forms.ColumnHeader ChatMsg;
     }
 }

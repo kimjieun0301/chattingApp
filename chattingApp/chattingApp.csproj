@@ -59,6 +59,7 @@
       <DependentUpon>chatRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Common_DB.cs" />
+    <Compile Include="CsChatServer.cs" />
     <Compile Include="CsMemList.cs" />
     <Compile Include="MemberJoin.cs">
       <SubType>Form</SubType>
