@@ -15,12 +15,15 @@ namespace chattingApp
 {
     public class CsChatServer
     {
+        #region init
         private TcpListener _listener;
         public CsChatServer()
         {
             _ = ChatServer();
-
         }
+        #endregion
+
+        #region 채팅 서버 시작
         public async Task ChatServer()
         {
             _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8080);
@@ -33,7 +36,9 @@ namespace chattingApp
                 _ = HandleClient(client);
             }
         }
+        #endregion
 
+        #region 클라이언트 핸들러
         public async Task HandleClient(TcpClient client)
         {
             NetworkStream stream = client.GetStream();
@@ -56,7 +61,7 @@ namespace chattingApp
                 var messageBuffer = Encoding.UTF8.GetBytes($"Server : {message}");
                 stream.Write(messageBuffer, 0, messageBuffer.Length);
             }
-
         }
+        #endregion
     }
 }

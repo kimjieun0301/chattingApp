@@ -52,6 +52,7 @@
             this.TxtId.Name = "TxtId";
             this.TxtId.Size = new System.Drawing.Size(144, 25);
             this.TxtId.TabIndex = 1;
+            this.TxtId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtId_KeyDown);
             // 
             // TxtPwd
             // 
@@ -59,7 +60,7 @@
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.Size = new System.Drawing.Size(144, 25);
             this.TxtPwd.TabIndex = 2;
-            this.TxtPwd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtPwd_KeyUp);
+            this.TxtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPwd_KeyDown);
             // 
             // Id
             // 
@@ -90,7 +91,7 @@
             this.BtnJoin.Text = "회원가입";
             this.BtnJoin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnJoin_LinkClicked);
             // 
-            // startLogin
+            // StartLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +102,7 @@
             this.Controls.Add(this.TxtPwd);
             this.Controls.Add(this.TxtId);
             this.Controls.Add(this.BtnLogin);
-            this.Name = "startLogin";
+            this.Name = "StartLogin";
             this.Text = "로그인";
             this.ResumeLayout(false);
             this.PerformLayout();

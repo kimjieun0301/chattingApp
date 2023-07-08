@@ -10,7 +10,7 @@ namespace chattingApp
 {
 	public class Common_DB
 	{
-        #region DataBase Connection
+        #region 데이터 베이스 연결
         public static OleDbConnection DBConnection()
 		{
 			OleDbConnection Conn;
@@ -23,7 +23,7 @@ namespace chattingApp
 		}
         #endregion
 
-        #region DataSelect 
+        #region 데이터 Select 
         public static OleDbDataReader DataSelect(string sql, OleDbConnection Conn)
 		{
 			try
@@ -43,7 +43,7 @@ namespace chattingApp
 		}
         #endregion
 
-        #region DataDelete, DataInsert 
+        #region 데이터 Delete, Insert 
         public static bool DataManupulation(string sql, OleDbConnection Conn)
 		{
 			try

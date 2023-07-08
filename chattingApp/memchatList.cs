@@ -18,11 +18,13 @@ namespace chattingApp
 {
     public partial class MemchatList : Form
     {
+        #region init
         private OleDbConnection LocalConn;
         public MemchatList()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region 폼 로드
         private void MemchatList_Load(object sender, EventArgs e)
@@ -79,18 +81,22 @@ namespace chattingApp
         }
         #endregion
 
+        #region 채팅방 만들기 버튼(채팅방 멤버 선택창)
         private void BtnMkChat_Click(object sender, EventArgs e)
         {
             PickMember PickMember1 = new PickMember();
             this.DialogResult = DialogResult.OK;
             PickMember1.Show();
         }
+        #endregion
 
+        #region 채팅방 테스트 버튼
         private void BtnChatRoom_Click(object sender, EventArgs e)
         {
             chatRoom chatRoom1 = new chatRoom();
             this.DialogResult = DialogResult.OK;
             chatRoom1.Show();
         }
+        #endregion
     }
 }

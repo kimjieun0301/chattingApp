@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace chattingApp
 {
@@ -21,7 +22,7 @@ namespace chattingApp
         }
         #endregion
 
-        #region login button click
+        #region 로그인 버튼 클릭
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             OleDbDataReader myReader;
@@ -70,17 +71,9 @@ namespace chattingApp
                 MessageBox.Show(e1.ToString() + sql, "FrmLogin :: 로그인오류!");
             }
         }
-        private void TxtPwd_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                BtnLogin_Click(sender, e);
-            }
-
-        }
         #endregion
 
-        #region member join button click
+        #region 회원가입 텍스트 버튼 클릭
         private void BtnJoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -88,6 +81,24 @@ namespace chattingApp
             MemberJoin memberJoin1 = new MemberJoin();
             this.DialogResult = DialogResult.OK;
             memberJoin1.Show();
+        }
+        #endregion
+
+        #region 엔터키 컨트롤
+        private void TxtPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(sender, e);
+            }
+        }
+
+        private void TxtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                TxtPwd.Focus();
+            }
         }
         #endregion
     }

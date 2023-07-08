@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.MsgList = new System.Windows.Forms.ListView();
+            this.ChatMsg = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChatMemNm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.BtnSendMsg = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnSendPic = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.TxtMessage = new System.Windows.Forms.TextBox();
-            this.ChatMsg = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ChatMemNm = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // MsgList
@@ -51,6 +51,16 @@
             this.MsgList.TabIndex = 0;
             this.MsgList.UseCompatibleStateImageBehavior = false;
             this.MsgList.View = System.Windows.Forms.View.Tile;
+            // 
+            // ChatMsg
+            // 
+            this.ChatMsg.Text = "대화";
+            this.ChatMsg.Width = 250;
+            // 
+            // ChatMemNm
+            // 
+            this.ChatMemNm.Text = "이름";
+            this.ChatMemNm.Width = 0;
             // 
             // button1
             // 
@@ -72,14 +82,15 @@
             this.BtnSendMsg.UseVisualStyleBackColor = true;
             this.BtnSendMsg.Click += new System.EventHandler(this.BtnSendMsg_Click);
             // 
-            // button3
+            // BtnSendPic
             // 
-            this.button3.Location = new System.Drawing.Point(12, 633);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(63, 51);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "사진";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnSendPic.Location = new System.Drawing.Point(12, 633);
+            this.BtnSendPic.Name = "BtnSendPic";
+            this.BtnSendPic.Size = new System.Drawing.Size(63, 51);
+            this.BtnSendPic.TabIndex = 4;
+            this.BtnSendPic.Text = "사진";
+            this.BtnSendPic.UseVisualStyleBackColor = true;
+            this.BtnSendPic.Click += new System.EventHandler(this.BtnSendPic_Click);
             // 
             // button4
             // 
@@ -107,16 +118,7 @@
             this.TxtMessage.Name = "TxtMessage";
             this.TxtMessage.Size = new System.Drawing.Size(439, 123);
             this.TxtMessage.TabIndex = 7;
-            // 
-            // ChatMsg
-            // 
-            this.ChatMsg.Text = "대화";
-            this.ChatMsg.Width = 250;
-            // 
-            // ChatMemNm
-            // 
-            this.ChatMemNm.Text = "이름";
-            this.ChatMemNm.Width = 0;
+            this.TxtMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtMessage_KeyDown);
             // 
             // chatRoom
             // 
@@ -126,7 +128,7 @@
             this.Controls.Add(this.TxtMessage);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.BtnSendPic);
             this.Controls.Add(this.BtnSendMsg);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.MsgList);
@@ -142,7 +144,7 @@
         private System.Windows.Forms.ListView MsgList;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnSendMsg;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnSendPic;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox TxtMessage;

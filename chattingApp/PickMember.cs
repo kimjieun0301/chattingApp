@@ -16,6 +16,7 @@ namespace chattingApp
 {
     public partial class PickMember : Form
     {
+        #region init
         private OleDbConnection LocalConn;
         public PickMember()
         {
@@ -23,6 +24,7 @@ namespace chattingApp
             PickMemList.CheckBoxes = true;
             PickMemList.OwnerDraw = true;
         }
+        #endregion
 
         #region 폼 로드
         private void PickMember_Load(object sender, EventArgs e)
