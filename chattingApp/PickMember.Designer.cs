@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.memID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // PickMemList
@@ -46,7 +47,8 @@
             this.cck,
             this.memName,
             this.memPos,
-            this.memDept});
+            this.memDept,
+            this.memID});
             this.PickMemList.HideSelection = false;
             this.PickMemList.Location = new System.Drawing.Point(12, 87);
             this.PickMemList.Name = "PickMemList";
@@ -116,6 +118,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "대화 상대 초대하기";
             // 
+            // memID
+            // 
+            this.memID.Text = "ID";
+            this.memID.Width = 0;
+            // 
             // PickMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -145,5 +152,6 @@
         private System.Windows.Forms.ColumnHeader memPos;
         private System.Windows.Forms.ColumnHeader memDept;
         private System.Windows.Forms.ColumnHeader cck;
+        private System.Windows.Forms.ColumnHeader memID;
     }
 }

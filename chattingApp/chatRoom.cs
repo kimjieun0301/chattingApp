@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using chattingLib;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using tbcomm.msg.common;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace chattingApp
 {
@@ -18,11 +10,7 @@ namespace chattingApp
     {
         #region init
         private TcpClient _client;
-
-        string m_splitter = "'\\'";
         string m_fName = string.Empty;
-        string[] m_split = null;
-        byte[] m_clientData = null;
         enum DataPacketType { TEXT = 1, IMAGE };
 
         public chatRoom()
@@ -54,29 +42,38 @@ namespace chattingApp
                 //item.SubItems.Add(message.ToString());
                 MsgList.Items.Add(message);
             }
-
         }
         #endregion
 
         #region 메세지 전송 버튼 클릭
         private async void BtnSendMsg_Click(object sender, EventArgs e)
         {
-            _ = new CsChatServer();
             _client = new TcpClient();
             await _client.ConnectAsync(IPAddress.Parse("127.0.0.1"), 8080);
             _ = HandleClient(_client);
-
-            
-            
+ 
             NetworkStream stream = _client.GetStream();
 
             string text = TxtMessage.Text;
-            var messageBuffer = Encoding.UTF8.GetBytes(text);
+
+            CsChatting newCsChatting = new CsChatting
+            {
+                MemId = "MemId_test",
+                RoomId = "RoomId_test",
+                MemName = "MemName_test",
+                Message = text,
+            };
+
+            var messageBuffer = Encoding.UTF8.GetBytes(newCsChatting.ToJsonString());
+
+            string type = "txt";
+            var typeBuffer = Encoding.UTF8.GetBytes(type);
 
             var msgLengthBuffer = BitConverter.GetBytes(messageBuffer.Length);
 
             //for(int i = 0; i < 100; i++)
             //{
+                stream.Write(typeBuffer, 0, typeBuffer.Length);
                 stream.Write(msgLengthBuffer, 0, msgLengthBuffer.Length);
                 stream.Write(messageBuffer, 0, messageBuffer.Length);
 
@@ -93,9 +90,68 @@ namespace chattingApp
         }
         #endregion
 
-        #region 사진 전송 버튼(전송할 사진 고르는 창)
+        #region 전송할 사진 넣기 버튼
         private void BtnSendPic_Click(object sender, EventArgs e)
         {
+            string m_splitter = "'\\'";
+            string[] m_split = null;
+            char[] delimeter = m_splitter.ToCharArray();
+
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFileDialog1.ShowDialog();
+
+            TxtMessage.Text = openFileDialog1.FileName;
+            //pictureBox1.ImageLocation = openFileDialog1.FileName;
+
+            m_split = TxtMessage.Text.Split(delimeter);
+            int limit = m_split.Length;
+
+            m_fName = m_split[limit - 1].ToString();
+
+            if (TxtMessage.Text != null)
+                BtnSendMsg.Enabled = true;
+
+            Thread t_handler = new Thread(SendData);
+            t_handler.IsBackground = true;
+            t_handler.Start();
+        }
+        #endregion
+
+        #region 사진 전송
+        private async void SendData()
+        {
+            //Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _client = new TcpClient();
+
+
+            string type = "img";
+            var typeBuffer = Encoding.UTF8.GetBytes(type);
+
+
+            byte[] fileName = Encoding.UTF8.GetBytes(m_fName);
+            byte[] fileData = File.ReadAllBytes(TxtMessage.Text);
+            byte[] fileNameLen = BitConverter.GetBytes(fileName.Length);
+            byte[] fileDataLen = BitConverter.GetBytes(fileData.Length);
+            //byte[] fileType = BitConverter.GetBytes((int)DataPacketType.IMAGE);
+            // IMAGE(4 byte) + 파일이름(4 byte) + 파일이름길이(4 byte) + 데이타 길이
+            //m_clientData = new byte[fileType.Length + 4 + fileName.Length + fileData.Length];
+            byte[] m_clientData = new byte[4 + fileName.Length + fileData.Length];
+
+            //fileType.CopyTo(m_clientData, 0);
+            fileNameLen.CopyTo(m_clientData, 0);
+            fileName.CopyTo(m_clientData, 4);
+            fileData.CopyTo(m_clientData, 4 + fileName.Length);
+
+            await _client.ConnectAsync(IPAddress.Parse("127.0.0.1"), 8080);
+            _ = HandleClient(_client);
+            NetworkStream stream = _client.GetStream();
+            //clientSocket.Connect(IPAddress.Parse("127.0.0.1"), 8080);
+            //stream.Write(msgLengthBuffer, 0, msgLengthBuffer.Length);
+            stream.Write(typeBuffer, 0, typeBuffer.Length);
+            stream.Write(m_clientData, 0, m_clientData.Length);
+            stream.Write(fileDataLen, 0, fileDataLen.Length);
+            //stream.Write(m_clientData, 0, m_clientData.Length);
+            //_client.Close();
 
         }
         #endregion

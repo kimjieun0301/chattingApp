@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace chattingApp
 {
@@ -140,8 +129,8 @@ namespace chattingApp
 
             if (MessageBox.Show(this, checkedItems.Count + "명의 친구와 채팅을 하시겠습니까?", "종료", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                string sql = "INSERT INTO CIS_WC (memName, memPos, memDept) " +
-                             "VALUES (@memName, @memPos, @memDept)";
+                string sql = "INSERT INTO CHATROOM (memName, memPos, memDept) " +
+                             "VALUES (@memName, @memPos, @memDept, @memId)";
 
                 try
                 {
@@ -160,6 +149,7 @@ namespace chattingApp
                                 cmd.Parameters.AddWithValue("@memName", value1);
                                 cmd.Parameters.AddWithValue("@memPos", value2);
                                 cmd.Parameters.AddWithValue("@memDept", value3);
+                                cmd.Parameters.AddWithValue("@memId", value3);
 
                             Common_DB.DataManupulation(sql, LocalConn);
                         }
