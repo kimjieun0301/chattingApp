@@ -27,10 +27,10 @@ namespace chattingApp
         private void chatRoom_Load(object sender, EventArgs e)
         {
             TxtMessage.Focus();
-            messageList();
-            msgMemList();
             BtnSendMsg.Click += BtnSendMsg_Click;
             TxtMessage.KeyDown += TxtMessage_KeyDown;
+            msgMemList();
+            messageList();
         }
         #endregion
 

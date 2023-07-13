@@ -37,7 +37,6 @@
             textBox1 = new TextBox();
             memchatListview = new ListView();
             BtnMkChat = new Button();
-            BtnChatRoom = new Button();
             SuspendLayout();
             // 
             // label1
@@ -120,6 +119,7 @@
             memchatListview.TabIndex = 8;
             memchatListview.UseCompatibleStateImageBehavior = false;
             memchatListview.View = View.Details;
+            memchatListview.MouseClick += memchatListview_MouseClick;
             // 
             // BtnMkChat
             // 
@@ -132,23 +132,11 @@
             BtnMkChat.UseVisualStyleBackColor = true;
             BtnMkChat.Click += BtnMkChat_Click;
             // 
-            // BtnChatRoom
-            // 
-            BtnChatRoom.Location = new Point(26, 536);
-            BtnChatRoom.Margin = new Padding(3, 4, 3, 4);
-            BtnChatRoom.Name = "BtnChatRoom";
-            BtnChatRoom.Size = new Size(125, 87);
-            BtnChatRoom.TabIndex = 11;
-            BtnChatRoom.Text = "채팅방 테스트 버튼";
-            BtnChatRoom.UseVisualStyleBackColor = true;
-            BtnChatRoom.Click += BtnChatRoom_Click;
-            // 
             // MemchatList
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
-            Controls.Add(BtnChatRoom);
             Controls.Add(BtnMkChat);
             Controls.Add(memchatListview);
             Controls.Add(textBox1);
@@ -181,6 +169,5 @@
         private TextBox textBox1;
         private ListView memchatListview;
         private Button BtnMkChat;
-        private Button BtnChatRoom;
     }
 }

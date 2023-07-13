@@ -1,4 +1,5 @@
 ﻿using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace chattingApp
 {
@@ -9,6 +10,7 @@ namespace chattingApp
         public MemchatList()
         {
             InitializeComponent();
+            memchatListview.FullRowSelect = true;
         }
         #endregion
 
@@ -172,14 +174,24 @@ namespace chattingApp
         }
         #endregion
 
-        #region 채팅방 테스트 버튼
-        private void BtnChatRoom_Click(object sender, EventArgs e)
+        #region 멤버 채팅방 입장 버튼
+        private void memchatListview_MouseClick(object sender, MouseEventArgs e)
         {
-            chatRoom chatRoom1 = new chatRoom(37);
-            this.DialogResult = DialogResult.OK;
-            chatRoom1.Show();
+            if (memchatListview.SelectedItems.Count != 0)
+            {
+                ListView.SelectedListViewItemCollection items = memchatListview.SelectedItems;
+                ListViewItem lvItem = items[0];
+                try
+                {
+                    chatRoom chatRoom = new chatRoom(Convert.ToInt32(lvItem.SubItems[0].Text));
+                    chatRoom.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("존재하지 않는 경로입니다.", MessageBoxIcon.Error.ToString());
+                }
+            }
         }
         #endregion
-
     }
 }
