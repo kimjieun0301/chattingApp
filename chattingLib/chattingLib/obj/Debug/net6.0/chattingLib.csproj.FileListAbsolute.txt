@@ -1,0 +1,12 @@
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\bin\Debug\net6.0\chattingLib.deps.json
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\bin\Debug\net6.0\chattingLib.dll
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\bin\Debug\net6.0\chattingLib.pdb
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.csproj.AssemblyReference.cache
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.AssemblyInfoInputs.cache
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.AssemblyInfo.cs
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.csproj.CoreCompileInputs.cache
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.dll
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\refint\chattingLib.dll
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\chattingLib.pdb
+C:\Users\marie\source\repos\chattingApp\chattingLib\chattingLib\obj\Debug\net6.0\ref\chattingLib.dll

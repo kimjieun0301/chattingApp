@@ -9,8 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="chattingLib">
       <HintPath>..\..\chattingLib\chattingLib\bin\Debug\net6.0\chattingLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.Tibero">
+      <HintPath>..\..\..\..\..\..\..\TmaxData\tibero6\bin\EntLibContrib.Data.Tibero.dll</HintPath>
+    </Reference>
+    <Reference Include="Tibero.DataAccess">
+      <HintPath>..\..\..\..\..\..\..\TmaxData\tibero6\bin\Tibero.DataAccess.dll</HintPath>
     </Reference>
   </ItemGroup>
 

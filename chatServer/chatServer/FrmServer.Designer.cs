@@ -28,63 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnListen = new System.Windows.Forms.Button();
-            this.LvChkServer = new System.Windows.Forms.ListBox();
-            this.Txtcount = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            BtnListen = new Button();
+            LvChkServer = new ListBox();
+            Txtcount = new Label();
+            SuspendLayout();
             // 
             // BtnListen
             // 
-            this.BtnListen.Location = new System.Drawing.Point(12, 12);
-            this.BtnListen.Name = "BtnListen";
-            this.BtnListen.Size = new System.Drawing.Size(127, 57);
-            this.BtnListen.TabIndex = 0;
-            this.BtnListen.Text = "연결";
-            this.BtnListen.UseVisualStyleBackColor = true;
-            this.BtnListen.Click += new System.EventHandler(this.BtnListen_Click);
+            BtnListen.Location = new Point(14, 16);
+            BtnListen.Margin = new Padding(3, 4, 3, 4);
+            BtnListen.Name = "BtnListen";
+            BtnListen.Size = new Size(143, 76);
+            BtnListen.TabIndex = 0;
+            BtnListen.Text = "연결";
+            BtnListen.UseVisualStyleBackColor = true;
+            BtnListen.Click += BtnListen_Click;
             // 
             // LvChkServer
             // 
-            this.LvChkServer.FormattingEnabled = true;
-            this.LvChkServer.ItemHeight = 15;
-            this.LvChkServer.Location = new System.Drawing.Point(169, 12);
-            this.LvChkServer.Name = "LvChkServer";
-            this.LvChkServer.Size = new System.Drawing.Size(324, 499);
-            this.LvChkServer.TabIndex = 1;
+            LvChkServer.FormattingEnabled = true;
+            LvChkServer.ItemHeight = 20;
+            LvChkServer.Location = new Point(190, 16);
+            LvChkServer.Margin = new Padding(3, 4, 3, 4);
+            LvChkServer.Name = "LvChkServer";
+            LvChkServer.Size = new Size(364, 664);
+            LvChkServer.TabIndex = 1;
             // 
             // Txtcount
             // 
-            this.Txtcount.AutoSize = true;
-            this.Txtcount.Location = new System.Drawing.Point(13, 83);
-            this.Txtcount.Name = "Txtcount";
-            this.Txtcount.Size = new System.Drawing.Size(44, 15);
-            this.Txtcount.TabIndex = 2;
-            this.Txtcount.Text = "count";
+            Txtcount.AutoSize = true;
+            Txtcount.Location = new Point(15, 111);
+            Txtcount.Name = "Txtcount";
+            Txtcount.Size = new Size(48, 20);
+            Txtcount.TabIndex = 2;
+            Txtcount.Text = "count";
             // 
             // FrmServer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 520);
-            this.Controls.Add(this.Txtcount);
-            this.Controls.Add(this.LvChkServer);
-            this.Controls.Add(this.BtnListen);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FrmServer";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "서버";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(900, 693);
+            Controls.Add(Txtcount);
+            Controls.Add(LvChkServer);
+            Controls.Add(BtnListen);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FrmServer";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "서버";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BtnListen;
-        private System.Windows.Forms.ListBox LvChkServer;
-        private System.Windows.Forms.Label Txtcount;
+        private Button BtnListen;
+        private ListBox LvChkServer;
+        private Label Txtcount;
     }
 }
 

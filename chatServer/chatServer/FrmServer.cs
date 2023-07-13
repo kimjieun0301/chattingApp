@@ -80,13 +80,14 @@ namespace chatServer
                             break;
                         String message = Encoding.UTF8.GetString(buffer, 0, read);
 
+                        CsMessage CsMessage = new CsMessage();
                         var chatForm = CsChatting.Parse(message);
+                        CsMessage.creaste_ChtMsg(chatForm);
                         LvChkServer.Items.Add($"{chatForm.MemId},{chatForm.RoomId},{chatForm.MemName},{chatForm.Message}");
-
                         Txtcount.Text = LvChkServer.Items.Count.ToString();
 
-                        var messageBuffer = Encoding.UTF8.GetBytes($"Server : {message}");
-                        stream.Write(messageBuffer, 0, messageBuffer.Length);
+                        //var messageBuffer = Encoding.UTF8.GetBytes($"Server : {message}");
+                        //stream.Write(messageBuffer, 0, messageBuffer.Length);
                     }
 
                 }

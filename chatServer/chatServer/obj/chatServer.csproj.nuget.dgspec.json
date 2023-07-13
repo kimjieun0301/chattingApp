@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marie\\source\\repos\\chatServer\\chatServer\\chatServer.csproj": {}
+    "C:\\Users\\marie\\source\\repos\\chattingApp\\chatServer\\chatServer\\chatServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marie\\source\\repos\\chatServer\\chatServer\\chatServer.csproj": {
+    "C:\\Users\\marie\\source\\repos\\chattingApp\\chatServer\\chatServer\\chatServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marie\\source\\repos\\chatServer\\chatServer\\chatServer.csproj",
+        "projectUniqueName": "C:\\Users\\marie\\source\\repos\\chattingApp\\chatServer\\chatServer\\chatServer.csproj",
         "projectName": "chatServer",
-        "projectPath": "C:\\Users\\marie\\source\\repos\\chatServer\\chatServer\\chatServer.csproj",
+        "projectPath": "C:\\Users\\marie\\source\\repos\\chattingApp\\chatServer\\chatServer\\chatServer.csproj",
         "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marie\\source\\repos\\chatServer\\chatServer\\obj\\",
+        "outputPath": "C:\\Users\\marie\\source\\repos\\chattingApp\\chatServer\\chatServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
