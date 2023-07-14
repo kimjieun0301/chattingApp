@@ -15,11 +15,15 @@ namespace chattingApp
         string m_fName = string.Empty;
         int room_id = 0;
         //enum DataPacketType { TEXT = 1, IMAGE };
+        private CsClientHandler? _clientHandler;
+        //public chatRoom()
+        //{
+        //    InitializeComponent();
+        //}
         public chatRoom(int room_id)
         {
             InitializeComponent();
             this.room_id = room_id;
-
         }
         #endregion
 
@@ -27,8 +31,8 @@ namespace chattingApp
         private void chatRoom_Load(object sender, EventArgs e)
         {
             TxtMessage.Focus();
-            BtnSendMsg.Click += BtnSendMsg_Click;
-            TxtMessage.KeyDown += TxtMessage_KeyDown;
+            //BtnSendMsg.Click += BtnSendMsg_Click;
+            //TxtMessage.KeyDown += TxtMessage_KeyDown;
             msgMemList();
             messageList();
         }
@@ -128,36 +132,44 @@ namespace chattingApp
         #region 메세지 전송 버튼 클릭
         private async void BtnSendMsg_Click(object sender, EventArgs e)
         {
-            _client = new TcpClient();
-            await _client.ConnectAsync(IPAddress.Parse("127.0.0.1"), 8080);
-            _ = HandleClient(_client);
-
-            NetworkStream stream = _client.GetStream();
-
             string text = TxtMessage.Text;
-
-            CsChatting newCsChatting = new CsChatting
+            CsSaveClient.Instance._CsClientHandler?.Send(new CsChatting
             {
                 MemId = CurrentMem.Instance.User.mem_id,
                 RoomId = room_id,
                 MemName = CurrentMem.Instance.User.mem_name,
                 Message = text,
-            };
+            });
+            //_client = new TcpClient();
+            //await _client.ConnectAsync(IPAddress.Parse("127.0.0.1"), 8080);
+            //_ = HandleClient(_client);
 
-            var messageBuffer = Encoding.UTF8.GetBytes(newCsChatting.ToJsonString());
+            //NetworkStream stream = _client.GetStream();
 
-            string type = "txt";
-            var typeBuffer = Encoding.UTF8.GetBytes(type);
+            //string text = TxtMessage.Text;
 
-            var msgLengthBuffer = BitConverter.GetBytes(messageBuffer.Length);
-
-            //for(int i = 0; i < 100; i++)
+            //CsChatting newCsChatting = new CsChatting
             //{
-            stream.Write(typeBuffer, 0, typeBuffer.Length);
-            stream.Write(msgLengthBuffer, 0, msgLengthBuffer.Length);
-            stream.Write(messageBuffer, 0, messageBuffer.Length);
+            //    MemId = CurrentMem.Instance.User.mem_id,
+            //    RoomId = room_id,
+            //    MemName = CurrentMem.Instance.User.mem_name,
+            //    Message = text,
+            //};
+
+            //var messageBuffer = Encoding.UTF8.GetBytes(newCsChatting.ToJsonString());
+
+            //string type = "txt";
+            //var typeBuffer = Encoding.UTF8.GetBytes(type);
+
+            //var msgLengthBuffer = BitConverter.GetBytes(messageBuffer.Length);
+
+            //stream.Write(typeBuffer, 0, typeBuffer.Length);
+            //stream.Write(msgLengthBuffer, 0, msgLengthBuffer.Length);
+            //stream.Write(messageBuffer, 0, messageBuffer.Length);
 
             TxtMessage.Clear();
+            //for(int i = 0; i < 100; i++)
+            //{
             //}
 
             //byte[] buffer = new byte[1024];
@@ -246,11 +258,11 @@ namespace chattingApp
         }
         #endregion
 
-        #region 메세지 전송 버튼 활성화
-        private void TxtMessage_TextChanged(object sender, EventArgs e)
-        {
-            BtnSendMsg.Enabled = true;
-        }
-        #endregion
+        //#region 메세지 전송 버튼 활성화
+        //private void TxtMessage_TextChanged(object sender, EventArgs e)
+        //{
+        //    BtnSendMsg.Enabled = true;
+        //}
+        //#endregion
     }
 }

@@ -53,7 +53,6 @@
             // 
             // BtnSendMsg
             // 
-            BtnSendMsg.Enabled = false;
             BtnSendMsg.Location = new Point(367, 844);
             BtnSendMsg.Margin = new Padding(3, 4, 3, 4);
             BtnSendMsg.Name = "BtnSendMsg";
@@ -82,7 +81,6 @@
             TxtMessage.Name = "TxtMessage";
             TxtMessage.Size = new Size(493, 163);
             TxtMessage.TabIndex = 7;
-            TxtMessage.TextChanged += TxtMessage_TextChanged;
             TxtMessage.KeyDown += TxtMessage_KeyDown;
             // 
             // openFileDialog1

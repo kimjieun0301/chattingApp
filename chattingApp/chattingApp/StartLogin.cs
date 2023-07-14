@@ -1,4 +1,7 @@
-﻿using System.Data.OleDb;
+﻿using chattingLib;
+using System.Data.OleDb;
+using System.Net;
+using System.Net.Sockets;
 
 namespace chattingApp
 {
@@ -6,19 +9,26 @@ namespace chattingApp
     {
         #region init
         private OleDbConnection LocalConn;
+        private CsChatClient _client;
+        private TcpClient _client1;
         public StartLogin()
         {
             InitializeComponent();
+            _client = new CsChatClient(IPAddress.Parse("127.0.0.1"), 8080);
         }
         #endregion
 
         #region 로그인 버튼 클릭
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private async void BtnLogin_Click(object sender, EventArgs e)
         {
             OleDbDataReader myReader;
             string sql = null;
             try
             {
+                _client1 = await _client.ConnectAsync(new CsChatting { });
+                CsClientHandler CsClientHandler = new CsClientHandler(_client1);
+                CsSaveClient.Instance._CsClientHandler = CsClientHandler;
+
                 LocalConn = Common_DB.DBConnection();
                 LocalConn.Open();
 
