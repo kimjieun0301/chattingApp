@@ -28,28 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BtnChtOut = new Button();
             BtnSendMsg = new Button();
             BtnSendPic = new Button();
             TxtMessage = new TextBox();
             openFileDialog1 = new OpenFileDialog();
-            BtnPicSend = new Button();
             chtmemList = new ListBox();
             ChatNm = new Label();
             MsgList = new ListBox();
             SuspendLayout();
-            // 
-            // BtnChtOut
-            // 
-            BtnChtOut.Enabled = false;
-            BtnChtOut.Font = new Font("굴림", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            BtnChtOut.Location = new Point(425, 63);
-            BtnChtOut.Margin = new Padding(3, 4, 3, 4);
-            BtnChtOut.Name = "BtnChtOut";
-            BtnChtOut.Size = new Size(84, 51);
-            BtnChtOut.TabIndex = 2;
-            BtnChtOut.Text = "→]";
-            BtnChtOut.UseVisualStyleBackColor = true;
             // 
             // BtnSendMsg
             // 
@@ -75,7 +61,7 @@
             // 
             // TxtMessage
             // 
-            TxtMessage.Location = new Point(14, 672);
+            TxtMessage.Location = new Point(15, 673);
             TxtMessage.Margin = new Padding(3, 4, 3, 4);
             TxtMessage.Multiline = true;
             TxtMessage.Name = "TxtMessage";
@@ -87,24 +73,13 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // BtnPicSend
-            // 
-            BtnPicSend.Enabled = false;
-            BtnPicSend.Location = new Point(91, 844);
-            BtnPicSend.Margin = new Padding(3, 4, 3, 4);
-            BtnPicSend.Name = "BtnPicSend";
-            BtnPicSend.Size = new Size(100, 68);
-            BtnPicSend.TabIndex = 8;
-            BtnPicSend.Text = "사진보내기";
-            BtnPicSend.UseVisualStyleBackColor = true;
-            // 
             // chtmemList
             // 
             chtmemList.FormattingEnabled = true;
             chtmemList.ItemHeight = 20;
             chtmemList.Location = new Point(16, 63);
             chtmemList.Name = "chtmemList";
-            chtmemList.Size = new Size(403, 144);
+            chtmemList.Size = new Size(491, 144);
             chtmemList.TabIndex = 9;
             // 
             // ChatNm
@@ -134,11 +109,9 @@
             Controls.Add(MsgList);
             Controls.Add(ChatNm);
             Controls.Add(chtmemList);
-            Controls.Add(BtnPicSend);
             Controls.Add(TxtMessage);
             Controls.Add(BtnSendPic);
             Controls.Add(BtnSendMsg);
-            Controls.Add(BtnChtOut);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -153,12 +126,10 @@
         }
 
         #endregion
-        private Button BtnChtOut;
         private Button BtnSendMsg;
         private Button BtnSendPic;
         private TextBox TxtMessage;
         private OpenFileDialog openFileDialog1;
-        private Button BtnPicSend;
         private ListBox chtmemList;
         private Label ChatNm;
         private ListBox MsgList;

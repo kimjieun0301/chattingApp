@@ -154,6 +154,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Chatting";
+            FormClosing += MemchatList_FormClosing;
             Load += MemchatList_Load;
             ResumeLayout(false);
             PerformLayout();

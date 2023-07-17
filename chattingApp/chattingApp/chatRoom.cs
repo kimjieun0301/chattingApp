@@ -20,10 +20,13 @@ namespace chattingApp
         //{
         //    InitializeComponent();
         //}
+        public static chatRoom chatRoom1;
         public chatRoom(int room_id)
         {
             InitializeComponent();
+            chatRoom1 = this;
             this.room_id = room_id;
+            listview_print(new CsChatting());
         }
         #endregion
 
@@ -60,6 +63,7 @@ namespace chattingApp
                 }
 
                 myReader.Close();
+                LocalConn.Close();
             }
             catch (Exception e1)
             {
@@ -68,6 +72,20 @@ namespace chattingApp
             }
         }
         #endregion
+
+        public void listview_print(CsChatting chatForm)
+        {
+            //if (CurrentMem.Instance.User.mem_id == chatForm.MemId)
+            //    MsgList.Items.Add($"-> {chatForm.Message}");
+            //else
+            if (chatForm.RoomId == room_id)
+            {
+                if (CurrentMem.Instance.User.mem_id == chatForm.MemId)
+                    MsgList.Items.Add($"-> {chatForm.MemName} : {chatForm.Message}");
+                else
+                    MsgList.Items.Add($"{chatForm.MemName} : {chatForm.Message}");
+            }
+        }
 
         #region 채팅메세지 조회
         private void messageList()
@@ -97,6 +115,7 @@ namespace chattingApp
                 }
 
                 myReader.Close();
+                LocalConn.Close();
             }
             catch (Exception e1)
             {

@@ -14,6 +14,7 @@ namespace chattingApp
     {
         private readonly TcpClient _client;
         private readonly NetworkStream _stream;
+        public CsChatting chatForm = new CsChatting();
 
         public CsClientHandler(TcpClient client)
         {
@@ -21,13 +22,54 @@ namespace chattingApp
             _stream = client.GetStream(); //getstream을 이용하여 네트워크의 스트림을 가져옴
         }
 
+        public void Send_id()
+        {
+            try
+            {
+                string id = CurrentMem.Instance.User.mem_id;
+
+                byte[] idBuffer = Encoding.UTF8.GetBytes(id);
+                byte[] idLengthBuffer = BitConverter.GetBytes(idBuffer.Length);
+
+                string type = "Cid";
+                var typeBuffer = Encoding.UTF8.GetBytes(type);
+
+
+                _stream.Write(typeBuffer, 0, typeBuffer.Length);
+                _stream.Write(idLengthBuffer, 0, idLengthBuffer.Length);
+                _stream.Write(idBuffer, 0, idBuffer.Length);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"클라이언트로 메세지 전송 중 오류 발생: {ex.Message}");
+            }
+        }
+
+        //public async Task Send_id()
+        //{
+        //    try
+        //    {
+        //        string id = CurrentMem.Instance.User.mem_id;
+
+        //        byte[] idBuffer = Encoding.UTF8.GetBytes(id);
+        //        byte[] idLengthBuffer = BitConverter.GetBytes(idBuffer.Length);
+
+        //        await _stream.WriteAsync(idLengthBuffer, 0, idLengthBuffer.Length);
+        //        await _stream.WriteAsync(idBuffer, 0, idBuffer.Length);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"클라이언트로 메세지 전송 중 오류 발생: {ex.Message}");
+        //    }
+        //}
+
         public async Task HandleClientAsync()
         {
             byte[] sizeBuffer = new byte[4]; //길이는 int형이라 버퍼크기 4byte 로 설정
             int read;
-
+            //Send_id();
             try
-            {
+         {
                 while (true)
                 {
                     read = await _stream.ReadAsync(sizeBuffer, 0, sizeBuffer.Length);
@@ -42,7 +84,10 @@ namespace chattingApp
                         break;
 
                     string message = Encoding.UTF8.GetString(buffer, 0, read); //버퍼를 텍스트(스트링)로 변환(인코딩)
+                    chatForm = CsChatting.Parse(message);
 
+                    //FrmServer frmServer = new FrmServer();
+                    chatRoom.chatRoom1.listview_print(chatForm);
                 }
             }
             catch (Exception ex)

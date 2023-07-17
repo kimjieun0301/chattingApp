@@ -59,6 +59,8 @@ namespace chattingApp
                 CsMemList.mem_id = TxtId.Text;
                 CsMemList.mem_name = myReader["MEM_NAME"].ToString();
                 CurrentMem.Instance.User = CsMemList;
+                CsClientHandler.Send_id();
+                LocalConn.Close();
                 this.Hide();
                 MemchatList memchatList = new MemchatList();
                 memchatList.Show();

@@ -106,6 +106,7 @@ namespace chattingApp
                     memchatListview.Items.Add(item);
                 }
                 myReader.Close();
+                LocalConn.Close();
             }
             catch (Exception e1)
             {
@@ -140,6 +141,7 @@ namespace chattingApp
                     memchatListview.Items.Add(item);
                 }
                 myReader.Close();
+                LocalConn.Close();
             }
             catch (Exception e1)
             {
@@ -193,5 +195,10 @@ namespace chattingApp
             }
         }
         #endregion
+
+        private void MemchatList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
+        }
     }
 }

@@ -175,10 +175,10 @@ namespace chattingApp
                     }
                     finally
                     {
-                        if (LocalConn != null && LocalConn.State == ConnectionState.Open)
-                        {
+                       // if (LocalConn != null && LocalConn.State == ConnectionState.Open)
+                       // {
                             LocalConn.Close();
-                        }
+                       // }
                     }
                 }
                 string sql1 = "INSERT INTO INGCHAT " +
@@ -203,10 +203,10 @@ namespace chattingApp
                 }
                 finally
                 {
-                    if (LocalConn != null && LocalConn.State == ConnectionState.Open)
-                    {
+                   // if (LocalConn != null && LocalConn.State == ConnectionState.Open)
+                   // {
                         LocalConn.Close();
-                    }
+                   // }
                 }
             }
             this.Hide();
