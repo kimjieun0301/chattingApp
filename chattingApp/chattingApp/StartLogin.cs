@@ -78,8 +78,6 @@ namespace chattingApp
         #region 회원가입 텍스트 버튼 클릭
         private void BtnJoin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-
             MemberJoin memberJoin1 = new MemberJoin();
             this.DialogResult = DialogResult.OK;
             memberJoin1.Show();

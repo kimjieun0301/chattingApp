@@ -92,7 +92,6 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "서버";
-            FormClosing += FrmServer_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

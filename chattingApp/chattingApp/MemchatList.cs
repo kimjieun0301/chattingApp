@@ -7,9 +7,12 @@ namespace chattingApp
     {
         #region init
         private OleDbConnection LocalConn;
+        int searchFlag = 0;
         public MemchatList()
         {
             InitializeComponent();
+            lbSearch.Text = "회원이름 : ";
+            searchFlag = 1;
             timer1.Start();
             memchatListview.FullRowSelect = true;
         }
@@ -90,6 +93,10 @@ namespace chattingApp
                 LocalConn.Open();
 
                 sql = "select MEM_ID,MEM_NAME, MEM_POS, MEM_DEPT from member ";
+                if (tbxSearch.Text.Trim().Length > 0)
+                {
+                    sql += " WHERE MEM_NAME LIKE '%" + tbxSearch.Text.Trim() + "%'";
+                }
                 myReader = Common_DB.DataSelect(sql, LocalConn);
 
                 while (myReader.Read())
@@ -102,7 +109,7 @@ namespace chattingApp
 
                     if (myReader["MEM_ID"].ToString() != CurrentMem.Instance.User.mem_id)
                     {
-                        memchatListview.Items.Add(item);                        
+                        memchatListview.Items.Add(item);
                     }
                 }
                 myReader.Close();
@@ -130,6 +137,10 @@ namespace chattingApp
                       " FROM INGCHAT ING " +
                       " JOIN CHATROOM RM ON ING.RM_ID = RM.RM_ID " +
                       " WHERE ING.MEM_ID = " + "'" + CurrentMem.Instance.User.mem_id + "'";
+                if (tbxSearch.Text.Trim().Length > 0)
+                {
+                    sql += " AND RM.RM_NAME LIKE '%" + tbxSearch.Text.Trim() + "%'";
+                }
                 myReader = Common_DB.DataSelect(sql, LocalConn);
 
                 while (myReader.Read())
@@ -152,6 +163,8 @@ namespace chattingApp
         #region 멤버 목록 조회 버튼
         private void BtnMemList_Click(object sender, EventArgs e)
         {
+            searchFlag = 1;
+            lbSearch.Text = "회원이름 : ";
             MemList_binding();
             memberList();
         }
@@ -160,6 +173,8 @@ namespace chattingApp
         #region 채팅방 목록 조회 버튼
         private void BtnChtRmList_Click(object sender, EventArgs e)
         {
+            searchFlag = 2;
+            lbSearch.Text = "채팅방 이름 : ";
             ChtRMList_binding();
             chtRmList();
         }
@@ -174,21 +189,65 @@ namespace chattingApp
         }
         #endregion
 
-        #region 멤버 채팅방 입장 버튼
+        #region 내 프로필 버튼 클릭
+        private void BtnMyProf_Click(object sender, EventArgs e)
+        {
+            MemProf memProf = new MemProf(CurrentMem.Instance.User.mem_id);
+            memProf.Show();
+        }
+        #endregion
+
+        #region 검색 버튼
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if (searchFlag == 1)
+            {
+                MemList_binding();
+                memberList();
+            }
+            else if (searchFlag == 2)
+            {
+                ChtRMList_binding();
+                chtRmList();
+            }
+        }
+        #endregion
+
+        #region 리스트뷰 항목 클릭
         private void memchatListview_MouseClick(object sender, MouseEventArgs e)
         {
-            if (memchatListview.SelectedItems.Count != 0)
+            if (searchFlag == 1)
             {
-                ListView.SelectedListViewItemCollection items = memchatListview.SelectedItems;
-                ListViewItem lvItem = items[0];
-                try
+                if (memchatListview.SelectedItems.Count != 0)
                 {
-                    chatRoom chatRoom = new chatRoom(Convert.ToInt32(lvItem.SubItems[0].Text));
-                    chatRoom.Show();
+                    ListView.SelectedListViewItemCollection items = memchatListview.SelectedItems;
+                    ListViewItem lvItem = items[0];
+                    try
+                    {
+                        MemProf memProf = new MemProf(lvItem.SubItems[3].Text);
+                        memProf.Show();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("존재하지 않는 경로입니다.", MessageBoxIcon.Error.ToString());
+                    }
                 }
-                catch
+            }
+            else if (searchFlag == 2)
+            {
+                if (memchatListview.SelectedItems.Count != 0)
                 {
-                    MessageBox.Show("존재하지 않는 경로입니다.", MessageBoxIcon.Error.ToString());
+                    ListView.SelectedListViewItemCollection items = memchatListview.SelectedItems;
+                    ListViewItem lvItem = items[0];
+                    try
+                    {
+                        chatRoom chatRoom = new chatRoom(Convert.ToInt32(lvItem.SubItems[0].Text));
+                        chatRoom.Show();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("존재하지 않는 경로입니다.", MessageBoxIcon.Error.ToString());
+                    }
                 }
             }
         }

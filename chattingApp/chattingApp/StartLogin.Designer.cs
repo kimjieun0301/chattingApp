@@ -88,7 +88,6 @@
             // BtnJoin
             // 
             BtnJoin.AutoSize = true;
-            BtnJoin.Enabled = false;
             BtnJoin.Location = new Point(271, 555);
             BtnJoin.Name = "BtnJoin";
             BtnJoin.Size = new Size(69, 20);

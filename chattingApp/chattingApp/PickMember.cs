@@ -34,6 +34,10 @@ namespace chattingApp
                 LocalConn.Open();
 
                 sql = "select MEM_ID, MEM_NAME, MEM_POS, MEM_DEPT from member ";
+                if (tbxPckSearch.Text.Trim().Length > 0)
+                {
+                    sql += " WHERE MEM_NAME LIKE '%" + tbxPckSearch.Text.Trim() + "%'";
+                }
                 myReader = Common_DB.DataSelect(sql, LocalConn);
 
                 while (myReader.Read())
@@ -133,8 +137,6 @@ namespace chattingApp
 
             foreach (ListViewItem item in PickMemList.CheckedItems)
             {
-                textBox1.AppendText(item.SubItems[4].Text + ",");
-
                 item.BackColor = Color.Aquamarine;
             }
 
@@ -145,7 +147,7 @@ namespace chattingApp
             }
 
             CsCreateChtRm csCreateChtRm = new CsCreateChtRm();
-            csCreateChtRm.rm_rm_name = TxtChtNm.Text;
+            csCreateChtRm.rm_rm_name = TxtChtNm.Text.Trim();
             csCreateChtRm._rm_use_yn = "Y";
             int room_id = csCreateChtRm.creaste_ChtRm();
 
@@ -207,10 +209,18 @@ namespace chattingApp
                 {
                     LocalConn.Close();
                 }
+
+                this.Hide();
+                chatRoom chatRoom = new chatRoom(room_id);
+                chatRoom.Show();
             }
-            this.Hide();
-            chatRoom chatRoom = new chatRoom(room_id);
-            chatRoom.Show();
+        }
+        #endregion
+
+        #region 멤버 이름 검색
+        private void BtnPckSearch_Click(object sender, EventArgs e)
+        {
+            memberList();
         }
         #endregion
     }

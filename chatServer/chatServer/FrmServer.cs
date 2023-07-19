@@ -31,14 +31,6 @@ namespace chatServer
         }
         #endregion
 
-        #region 채팅 서버 종료
-        private void FrmServer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _listener.Stop();
-            Application.Exit();
-        }
-        #endregion
-
         #region 채팅 서버 로그 출력
         public void listview_print(CsChatting chatForm)
         {

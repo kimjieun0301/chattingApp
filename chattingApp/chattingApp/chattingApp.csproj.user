@@ -10,6 +10,9 @@
     <Compile Update="MemchatList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MemProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PickMember.cs">
       <SubType>Form</SubType>
     </Compile>

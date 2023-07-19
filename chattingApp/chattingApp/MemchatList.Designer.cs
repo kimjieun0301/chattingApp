@@ -33,13 +33,14 @@
             label2 = new Label();
             BtnMemList = new Button();
             BtnChtRmList = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            textBox1 = new TextBox();
+            BtnMyProf = new Button();
+            BtnSearch = new Button();
+            tbxSearch = new TextBox();
             memchatListview = new ListView();
             BtnMkChat = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
+            lbSearch = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -83,36 +84,35 @@
             BtnChtRmList.UseVisualStyleBackColor = true;
             BtnChtRmList.Click += BtnChtRmList_Click;
             // 
-            // button3
+            // BtnMyProf
             // 
-            button3.Enabled = false;
-            button3.Location = new Point(37, 329);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(105, 31);
-            button3.TabIndex = 5;
-            button3.Text = "내 프로필";
-            button3.UseVisualStyleBackColor = true;
+            BtnMyProf.Location = new Point(37, 329);
+            BtnMyProf.Margin = new Padding(3, 4, 3, 4);
+            BtnMyProf.Name = "BtnMyProf";
+            BtnMyProf.Size = new Size(105, 31);
+            BtnMyProf.TabIndex = 5;
+            BtnMyProf.Text = "내 프로필";
+            BtnMyProf.UseVisualStyleBackColor = true;
+            BtnMyProf.Click += BtnMyProf_Click;
             // 
-            // button4
+            // BtnSearch
             // 
-            button4.Enabled = false;
-            button4.Location = new Point(535, 86);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(84, 31);
-            button4.TabIndex = 6;
-            button4.Text = "검색";
-            button4.UseVisualStyleBackColor = true;
+            BtnSearch.Location = new Point(536, 84);
+            BtnSearch.Margin = new Padding(3, 4, 3, 4);
+            BtnSearch.Name = "BtnSearch";
+            BtnSearch.Size = new Size(84, 31);
+            BtnSearch.TabIndex = 6;
+            BtnSearch.Text = "검색";
+            BtnSearch.UseVisualStyleBackColor = true;
+            BtnSearch.Click += BtnSearch_Click;
             // 
-            // textBox1
+            // tbxSearch
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(299, 86);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 27);
-            textBox1.TabIndex = 7;
+            tbxSearch.Location = new Point(299, 86);
+            tbxSearch.Margin = new Padding(3, 4, 3, 4);
+            tbxSearch.Name = "tbxSearch";
+            tbxSearch.Size = new Size(230, 27);
+            tbxSearch.TabIndex = 7;
             // 
             // memchatListview
             // 
@@ -151,17 +151,27 @@
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
+            // lbSearch
+            // 
+            lbSearch.AutoSize = true;
+            lbSearch.Location = new Point(193, 89);
+            lbSearch.Name = "lbSearch";
+            lbSearch.Size = new Size(52, 20);
+            lbSearch.TabIndex = 11;
+            lbSearch.Text = "serach";
+            // 
             // MemchatList
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
+            Controls.Add(lbSearch);
             Controls.Add(pictureBox1);
             Controls.Add(BtnMkChat);
             Controls.Add(memchatListview);
-            Controls.Add(textBox1);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(tbxSearch);
+            Controls.Add(BtnSearch);
+            Controls.Add(BtnMyProf);
             Controls.Add(BtnChtRmList);
             Controls.Add(BtnMemList);
             Controls.Add(label2);
@@ -186,12 +196,13 @@
         private Label label2;
         private Button BtnMemList;
         private Button BtnChtRmList;
-        private Button button3;
-        private Button button4;
-        private TextBox textBox1;
+        private Button BtnMyProf;
+        private Button BtnSearch;
+        private TextBox tbxSearch;
         private ListView memchatListview;
         private Button BtnMkChat;
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox1;
+        private Label lbSearch;
     }
 }

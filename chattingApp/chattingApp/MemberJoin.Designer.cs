@@ -35,14 +35,13 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            tbxJnNm = new TextBox();
+            tbxJnEml = new TextBox();
+            tbxJnId = new TextBox();
+            tbxJnPwd = new TextBox();
+            tbxJnPos = new TextBox();
+            tbxJnDept = new TextBox();
             btnJoin = new Button();
-            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -109,53 +108,53 @@
             label7.TabIndex = 6;
             label7.Text = "부서";
             // 
-            // textBox1
+            // tbxJnNm
             // 
-            textBox1.Location = new Point(288, 207);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(148, 27);
-            textBox1.TabIndex = 7;
+            tbxJnNm.Location = new Point(288, 207);
+            tbxJnNm.Margin = new Padding(3, 4, 3, 4);
+            tbxJnNm.Name = "tbxJnNm";
+            tbxJnNm.Size = new Size(148, 27);
+            tbxJnNm.TabIndex = 7;
             // 
-            // textBox2
+            // tbxJnEml
             // 
-            textBox2.Location = new Point(288, 275);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(148, 27);
-            textBox2.TabIndex = 8;
+            tbxJnEml.Location = new Point(288, 275);
+            tbxJnEml.Margin = new Padding(3, 4, 3, 4);
+            tbxJnEml.Name = "tbxJnEml";
+            tbxJnEml.Size = new Size(148, 27);
+            tbxJnEml.TabIndex = 8;
             // 
-            // textBox3
+            // tbxJnId
             // 
-            textBox3.Location = new Point(288, 352);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(148, 27);
-            textBox3.TabIndex = 9;
+            tbxJnId.Location = new Point(288, 352);
+            tbxJnId.Margin = new Padding(3, 4, 3, 4);
+            tbxJnId.Name = "tbxJnId";
+            tbxJnId.Size = new Size(148, 27);
+            tbxJnId.TabIndex = 9;
             // 
-            // textBox4
+            // tbxJnPwd
             // 
-            textBox4.Location = new Point(288, 439);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(148, 27);
-            textBox4.TabIndex = 10;
+            tbxJnPwd.Location = new Point(288, 439);
+            tbxJnPwd.Margin = new Padding(3, 4, 3, 4);
+            tbxJnPwd.Name = "tbxJnPwd";
+            tbxJnPwd.Size = new Size(148, 27);
+            tbxJnPwd.TabIndex = 10;
             // 
-            // textBox5
+            // tbxJnPos
             // 
-            textBox5.Location = new Point(288, 516);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(148, 27);
-            textBox5.TabIndex = 11;
+            tbxJnPos.Location = new Point(288, 516);
+            tbxJnPos.Margin = new Padding(3, 4, 3, 4);
+            tbxJnPos.Name = "tbxJnPos";
+            tbxJnPos.Size = new Size(148, 27);
+            tbxJnPos.TabIndex = 11;
             // 
-            // textBox6
+            // tbxJnDept
             // 
-            textBox6.Location = new Point(288, 588);
-            textBox6.Margin = new Padding(3, 4, 3, 4);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(148, 27);
-            textBox6.TabIndex = 12;
+            tbxJnDept.Location = new Point(288, 588);
+            tbxJnDept.Margin = new Padding(3, 4, 3, 4);
+            tbxJnDept.Name = "tbxJnDept";
+            tbxJnDept.Size = new Size(148, 27);
+            tbxJnDept.TabIndex = 12;
             // 
             // btnJoin
             // 
@@ -168,29 +167,18 @@
             btnJoin.UseVisualStyleBackColor = true;
             btnJoin.Click += btnJoin_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(442, 351);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(84, 31);
-            button1.TabIndex = 14;
-            button1.Text = "중복확인";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // MemberJoin
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
-            Controls.Add(button1);
             Controls.Add(btnJoin);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(tbxJnDept);
+            Controls.Add(tbxJnPos);
+            Controls.Add(tbxJnPwd);
+            Controls.Add(tbxJnId);
+            Controls.Add(tbxJnEml);
+            Controls.Add(tbxJnNm);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label4);
@@ -219,13 +207,12 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox tbxJnNm;
+        private TextBox tbxJnEml;
+        private TextBox tbxJnId;
+        private TextBox tbxJnPwd;
+        private TextBox tbxJnPos;
+        private TextBox tbxJnDept;
         private Button btnJoin;
-        private Button button1;
     }
 }

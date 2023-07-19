@@ -35,11 +35,12 @@
             memDept = new ColumnHeader();
             memID = new ColumnHeader();
             MakechatRm = new Button();
-            button2 = new Button();
-            textBox1 = new TextBox();
+            BtnPckSearch = new Button();
+            tbxPckSearch = new TextBox();
             label1 = new Label();
             TxtChtNm = new TextBox();
             label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // PickMemList
@@ -95,25 +96,24 @@
             MakechatRm.UseVisualStyleBackColor = true;
             MakechatRm.Click += MakechatRm_Click;
             // 
-            // button2
+            // BtnPckSearch
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(407, 142);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 31);
-            button2.TabIndex = 2;
-            button2.Text = "검색";
-            button2.UseVisualStyleBackColor = true;
+            BtnPckSearch.Location = new Point(407, 142);
+            BtnPckSearch.Margin = new Padding(3, 4, 3, 4);
+            BtnPckSearch.Name = "BtnPckSearch";
+            BtnPckSearch.Size = new Size(100, 31);
+            BtnPckSearch.TabIndex = 2;
+            BtnPckSearch.Text = "검색";
+            BtnPckSearch.UseVisualStyleBackColor = true;
+            BtnPckSearch.Click += BtnPckSearch_Click;
             // 
-            // textBox1
+            // tbxPckSearch
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(15, 142);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(386, 27);
-            textBox1.TabIndex = 3;
+            tbxPckSearch.Location = new Point(128, 142);
+            tbxPckSearch.Margin = new Padding(3, 4, 3, 4);
+            tbxPckSearch.Name = "tbxPckSearch";
+            tbxPckSearch.Size = new Size(273, 27);
+            tbxPckSearch.TabIndex = 3;
             // 
             // label1
             // 
@@ -143,16 +143,27 @@
             label2.TabIndex = 6;
             label2.Text = "채팅방 이름 :";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("굴림", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(40, 148);
+            label3.Name = "label3";
+            label3.Size = new Size(82, 15);
+            label3.TabIndex = 7;
+            label3.Text = "회원 이름 :";
+            // 
             // PickMember
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(521, 917);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(TxtChtNm);
             Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(button2);
+            Controls.Add(tbxPckSearch);
+            Controls.Add(BtnPckSearch);
             Controls.Add(MakechatRm);
             Controls.Add(PickMemList);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -172,8 +183,8 @@
 
         private ListView PickMemList;
         private Button MakechatRm;
-        private Button button2;
-        private TextBox textBox1;
+        private Button BtnPckSearch;
+        private TextBox tbxPckSearch;
         private Label label1;
         private ColumnHeader memName;
         private ColumnHeader memPos;
@@ -182,5 +193,6 @@
         private ColumnHeader memID;
         private TextBox TxtChtNm;
         private Label label2;
+        private Label label3;
     }
 }
