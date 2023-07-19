@@ -60,6 +60,7 @@ namespace chattingApp
                 CsMemList.mem_name = myReader["MEM_NAME"].ToString();
                 CurrentMem.Instance.User = CsMemList;
                 CsClientHandler.Send_id();
+                myReader.Close();
                 LocalConn.Close();
                 this.Hide();
                 MemchatList memchatList = new MemchatList();
@@ -69,7 +70,6 @@ namespace chattingApp
 
             catch (Exception e1)
             {
-                //Log.WriteLine("FrmLogin", e1.ToString());
                 MessageBox.Show(e1.ToString() + sql, "FrmLogin :: 로그인오류!");
             }
         }

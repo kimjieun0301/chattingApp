@@ -34,6 +34,8 @@
             Id = new Label();
             Password = new Label();
             BtnJoin = new LinkLabel();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // BtnLogin
@@ -95,11 +97,22 @@
             BtnJoin.Text = "회원가입";
             BtnJoin.LinkClicked += BtnJoin_LinkClicked;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo_;
+            pictureBox1.Location = new Point(12, 125);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(608, 92);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
             // StartLogin
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
+            Controls.Add(pictureBox1);
             Controls.Add(BtnJoin);
             Controls.Add(Password);
             Controls.Add(Id);
@@ -114,6 +127,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "로그인";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,6 +140,7 @@
         private Label Id;
         private Label Password;
         private LinkLabel BtnJoin;
+        private PictureBox pictureBox1;
     }
 }
 

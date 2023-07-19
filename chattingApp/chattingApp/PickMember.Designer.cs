@@ -86,7 +86,6 @@
             // 
             // MakechatRm
             // 
-            MakechatRm.Enabled = false;
             MakechatRm.Location = new Point(407, 106);
             MakechatRm.Margin = new Padding(3, 4, 3, 4);
             MakechatRm.Name = "MakechatRm";
@@ -133,7 +132,6 @@
             TxtChtNm.Name = "TxtChtNm";
             TxtChtNm.Size = new Size(170, 27);
             TxtChtNm.TabIndex = 5;
-            TxtChtNm.TextChanged += TxtChtNm_TextChanged;
             // 
             // label2
             // 

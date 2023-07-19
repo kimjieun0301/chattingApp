@@ -38,3 +38,4 @@ C:\Users\marie\source\repos\chattingApp\chattingApp\chattingApp\obj\Debug\net6.0
 C:\Users\marie\source\repos\chattingApp\chattingApp\chattingApp\obj\Debug\net6.0-windows\chattingApp.pdb
 C:\Users\marie\source\repos\chattingApp\chattingApp\chattingApp\obj\Debug\net6.0-windows\chattingApp.genruntimeconfig.cache
 C:\Users\marie\source\repos\chattingApp\chattingApp\chattingApp\obj\Debug\net6.0-windows\ref\chattingApp.dll
+C:\Users\marie\source\repos\chattingApp\chattingApp\chattingApp\obj\Debug\net6.0-windows\chattingApp.Properties.Resources.resources

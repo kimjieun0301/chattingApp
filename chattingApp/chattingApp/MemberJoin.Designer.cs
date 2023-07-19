@@ -42,6 +42,7 @@
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             btnJoin = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -167,11 +168,22 @@
             btnJoin.UseVisualStyleBackColor = true;
             btnJoin.Click += btnJoin_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(442, 351);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(84, 31);
+            button1.TabIndex = 14;
+            button1.Text = "중복확인";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // MemberJoin
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
+            Controls.Add(button1);
             Controls.Add(btnJoin);
             Controls.Add(textBox6);
             Controls.Add(textBox5);
@@ -214,5 +226,6 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private Button btnJoin;
+        private Button button1;
     }
 }

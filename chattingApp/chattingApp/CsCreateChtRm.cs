@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using tbcomm.util;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+﻿using System.Data.OleDb;
 
 namespace chattingApp
 {
      public class CsCreateChtRm
     {
+        #region init
         private OleDbConnection LocalConn;
         public CsMemList MemList = new CsMemList();
         public int rm_rm_id { get; set; }
@@ -41,7 +32,9 @@ namespace chattingApp
             rm_rm_name = rm_upt_id = rm_reg_id = rm_reg_dt = rm_upt_dt = _rm_use_yn = rm_use_yn = "";
             rm_rm_id = rm_hi = 0;
         }
+        #endregion
 
+        #region 채팅방 가장 최근 id 조회
         public void GetChtRmId()
         {
             OleDbDataReader myReader;
@@ -56,17 +49,20 @@ namespace chattingApp
                 myReader = Common_DB.DataSelect(sql1, LocalConn);
                 if (myReader.Read())
                    rm_rm_id = Convert.ToInt32(myReader["rm_id"].ToString());
+                myReader.Close();
             }
             catch (Exception e1)
             {
-                Debug.WriteLine("GetChtRmId", e1.ToString());
+                MessageBox.Show("GetChtRmId", e1.ToString());
             }
             finally
             {
                 LocalConn.Close();
             }
         }
+        #endregion
 
+        #region 채팅방 생성
         public int creaste_ChtRm()
         {
             try
@@ -83,7 +79,7 @@ namespace chattingApp
             }
             catch (Exception e1)
             {
-                Debug.WriteLine("Creaste_ChtRm", e1.ToString());
+                MessageBox.Show("Creaste_ChtRm", e1.ToString());
                 return -1;
             }
             finally
@@ -92,5 +88,6 @@ namespace chattingApp
             }
             return rm_rm_id;
         }
+        #endregion
     }
 }

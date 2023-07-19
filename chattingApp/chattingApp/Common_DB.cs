@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.OleDb;
 
 namespace chattingApp
 {
@@ -32,7 +26,6 @@ namespace chattingApp
 			}
 			catch (Exception ex)
 			{
-				//Log File에 출력 
 				MessageBox.Show(sql + "\n" + ex.Message, "DataSelect");
 				return null;
 			}
@@ -53,7 +46,6 @@ namespace chattingApp
 			}
 			catch (Exception ex)
 			{
-				//Log File에 출력 
 				MessageBox.Show(sql + "\n" + ex.Message, "DataManupulation");
 				return false;
 			}

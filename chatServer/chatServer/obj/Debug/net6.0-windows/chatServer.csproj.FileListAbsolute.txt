@@ -34,3 +34,4 @@ C:\Users\marie\source\repos\chattingApp\chatServer\chatServer\obj\Debug\net6.0-w
 C:\Users\marie\source\repos\chattingApp\chatServer\chatServer\obj\Debug\net6.0-windows\chatServer.pdb
 C:\Users\marie\source\repos\chattingApp\chatServer\chatServer\obj\Debug\net6.0-windows\chatServer.genruntimeconfig.cache
 C:\Users\marie\source\repos\chattingApp\chatServer\chatServer\obj\Debug\net6.0-windows\ref\chatServer.dll
+C:\Users\marie\source\repos\chattingApp\chatServer\chatServer\obj\Debug\net6.0-windows\chatServer.Properties.Resources.resources

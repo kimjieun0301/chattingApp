@@ -1,27 +1,23 @@
 ﻿using chattingLib;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace chattingApp
 {
     public class CsClientHandler
     {
+        #region init
         private readonly TcpClient _client;
         private readonly NetworkStream _stream;
         public CsChatting chatForm = new CsChatting();
-
         public CsClientHandler(TcpClient client)
         {
             _client = client;
-            _stream = client.GetStream(); //getstream을 이용하여 네트워크의 스트림을 가져옴
+            _stream = client.GetStream();
         }
+        #endregion
 
+        #region 서버에게 자신의 id 전송
         public void Send_id()
         {
             try
@@ -41,76 +37,52 @@ namespace chattingApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"클라이언트로 메세지 전송 중 오류 발생: {ex.Message}");
+                MessageBox.Show($"서버에게 id 전송 중 오류 발생: {ex.Message}");
             }
         }
+        #endregion
 
-        //public async Task Send_id()
-        //{
-        //    try
-        //    {
-        //        string id = CurrentMem.Instance.User.mem_id;
-
-        //        byte[] idBuffer = Encoding.UTF8.GetBytes(id);
-        //        byte[] idLengthBuffer = BitConverter.GetBytes(idBuffer.Length);
-
-        //        await _stream.WriteAsync(idLengthBuffer, 0, idLengthBuffer.Length);
-        //        await _stream.WriteAsync(idBuffer, 0, idBuffer.Length);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"클라이언트로 메세지 전송 중 오류 발생: {ex.Message}");
-        //    }
-        //}
-
+        #region 클라이언트 핸들러(서버에서 메세지 받기)
         public async Task HandleClientAsync()
         {
-            byte[] sizeBuffer = new byte[4]; //길이는 int형이라 버퍼크기 4byte 로 설정
+            byte[] sizeBuffer = new byte[4];
             int read;
-            //Send_id();
             try
          {
                 while (true)
                 {
                     read = await _stream.ReadAsync(sizeBuffer, 0, sizeBuffer.Length);
-                    if (read == 0) //read값이 0이면 중단= 비정상 동작
+                    if (read <= 0)
                         break;
 
-                    int size = BitConverter.ToInt32(sizeBuffer); //연속적인 메세지에 대한 오류 때문에 문자열 길이 bitconverter이용해서 int로 저장
-                    byte[] buffer = new byte[size]; //해당 size만큼 byte형 배열 버퍼를 생성.
+                    int size = BitConverter.ToInt32(sizeBuffer);
+                    byte[] buffer = new byte[size];
 
-                    read = await _stream.ReadAsync(buffer, 0, buffer.Length); //임의의 버퍼 넣어줌 0부터 버퍼사이즈까지 읽기(비동기로 읽음)
-                    if (read == 0)//read값이 0이면 중단= 비정상 동작
+                    read = await _stream.ReadAsync(buffer, 0, buffer.Length);
+                    if (read <= 0)
                         break;
 
-                    string message = Encoding.UTF8.GetString(buffer, 0, read); //버퍼를 텍스트(스트링)로 변환(인코딩)
+                    string message = Encoding.UTF8.GetString(buffer, 0, read);
                     chatForm = CsChatting.Parse(message);
-
-                    //FrmServer frmServer = new FrmServer();
                     chatRoom.chatRoom1.listview_print(chatForm);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"클라이언트 요청 처리 중 오류 발생: {ex.Message}");
+                MessageBox.Show($"메시지 전송 오류 발생: {ex.Message}");
             }
             finally
             {
                 _client.Close();
-                //Disconnected?.Invoke(this, new ChatEventArgs(this, InitialData!));
             }
         }
+        #endregion
 
+        #region 서버에게 메세지 전송
         public void Send(CsChatting hub)
         {
             try
             {
-                //byte[] buffer = Encoding.UTF8.GetBytes(hub.ToJsonString());
-                //byte[] lengthBuffer = BitConverter.GetBytes(buffer.Length);
-
-                //_stream.Write(lengthBuffer);
-                //_stream.Write(buffer); //메세지 전송은 read가 아닌 write 사용
-
                 var messageBuffer = Encoding.UTF8.GetBytes(hub.ToJsonString());
 
                 string type = "txt";
@@ -124,8 +96,16 @@ namespace chattingApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"클라이언트로 메세지 전송 중 오류 발생: {ex.Message}");
+                MessageBox.Show($"메세지 전송 중 오류 발생: {ex.Message}");
             }
         }
+        #endregion
+
+        #region 소켓닫기
+        public void AppExit()
+        {
+            _client?.Dispose();
+        }
+        #endregion
     }
 }

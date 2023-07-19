@@ -11,6 +11,7 @@ namespace chatServer
 {
     public class CsMessage
     {
+        #region init
         private OleDbConnection LocalConn;
         public int msg_id { get; set; }
         public int rm_id { get; set; }
@@ -38,7 +39,9 @@ namespace chatServer
             mem_id = msg_txt = msg_img = reg_id = reg_dt = use_yn = _use_yn = "";
             msg_id = rm_id = hi = 0;
         }
+        #endregion
 
+        #region 메시지 저장
         public void creaste_ChtMsg(CsChatting chatForm)
         {
             try
@@ -51,7 +54,6 @@ namespace chatServer
                              " VALUES " +
                              " (SEQ_CHMSG.NEXTVAL,'" + chatForm.RoomId + "', '" + chatForm.MemId + "', '" + chatForm.Message + "', '', '" + chatForm.MemId + "', sysdate, '" + use_yn + "', '" + hi + "') ";
                 Common_DB.DataManupulation(sql, LocalConn);
-                //GetChtMsgId();
             }
             catch (Exception e1)
             {
@@ -62,5 +64,6 @@ namespace chatServer
                 LocalConn.Close();
             }
         }
+        #endregion
     }
 }

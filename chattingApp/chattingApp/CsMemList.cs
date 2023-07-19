@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace chattingApp
+﻿namespace chattingApp
 {
     public class CsMemList
     {
+        #region init
         public string mem_id { get; set; }
         public string mem_pwd { get; set; }
         public string mem_name { get; set; }
@@ -40,5 +34,6 @@ namespace chattingApp
             mem_id = mem_pwd = mem_name = mem_email = mem_pos = mem_dept = mem_hi = mem_upt_dt = mem_upt_id = mem_reg_dt = mem_reg_id = ma = _mem_use_yn = mem_use_yn = "";
             cnt = 0;
         }
+        #endregion
     }
 }

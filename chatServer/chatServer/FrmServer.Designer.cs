@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BtnListen = new Button();
             LvChkServer = new ListBox();
             Txtcount = new Label();
+            BtnListen = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // BtnListen
-            // 
-            BtnListen.Location = new Point(14, 16);
-            BtnListen.Margin = new Padding(3, 4, 3, 4);
-            BtnListen.Name = "BtnListen";
-            BtnListen.Size = new Size(143, 76);
-            BtnListen.TabIndex = 0;
-            BtnListen.Text = "연결";
-            BtnListen.UseVisualStyleBackColor = true;
-            BtnListen.Click += BtnListen_Click;
             // 
             // LvChkServer
             // 
@@ -57,20 +48,42 @@
             // Txtcount
             // 
             Txtcount.AutoSize = true;
-            Txtcount.Location = new Point(15, 111);
+            Txtcount.Location = new Point(15, 218);
             Txtcount.Name = "Txtcount";
             Txtcount.Size = new Size(48, 20);
             Txtcount.TabIndex = 2;
             Txtcount.Text = "count";
             // 
+            // BtnListen
+            // 
+            BtnListen.Location = new Point(15, 138);
+            BtnListen.Margin = new Padding(3, 4, 3, 4);
+            BtnListen.Name = "BtnListen";
+            BtnListen.Size = new Size(143, 76);
+            BtnListen.TabIndex = 3;
+            BtnListen.Text = "연결";
+            BtnListen.UseVisualStyleBackColor = true;
+            BtnListen.Click += BtnListen_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo_;
+            pictureBox1.Location = new Point(12, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(146, 97);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
             // FrmServer
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 693);
+            ClientSize = new Size(564, 693);
+            Controls.Add(pictureBox1);
+            Controls.Add(BtnListen);
             Controls.Add(Txtcount);
             Controls.Add(LvChkServer);
-            Controls.Add(BtnListen);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -79,15 +92,17 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "서버";
+            FormClosing += FrmServer_FormClosing;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button BtnListen;
         private ListBox LvChkServer;
         private Label Txtcount;
+        private Button BtnListen;
+        private PictureBox pictureBox1;
     }
 }
 

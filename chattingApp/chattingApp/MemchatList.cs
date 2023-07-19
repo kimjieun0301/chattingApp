@@ -1,5 +1,5 @@
-﻿using System.Data.OleDb;
-using System.Diagnostics;
+﻿using System.Data;
+using System.Data.OleDb;
 
 namespace chattingApp
 {
@@ -10,6 +10,7 @@ namespace chattingApp
         public MemchatList()
         {
             InitializeComponent();
+            timer1.Start();
             memchatListview.FullRowSelect = true;
         }
         #endregion
@@ -89,7 +90,6 @@ namespace chattingApp
                 LocalConn.Open();
 
                 sql = "select MEM_ID,MEM_NAME, MEM_POS, MEM_DEPT from member ";
-                //sql += " where MEM_ID = " + "'" + TxtId.Text + "'";
                 myReader = Common_DB.DataSelect(sql, LocalConn);
 
                 while (myReader.Read())
@@ -100,18 +100,17 @@ namespace chattingApp
                     item.SubItems.Add(myReader["MEM_DEPT"].ToString());
                     item.SubItems.Add(myReader["MEM_ID"].ToString());
 
-                    //DateTime regDate = (DateTime)myReader["regDate"];
-                    //tem.SubItems.Add(regDate.ToLongDateString());
-
-                    memchatListview.Items.Add(item);
+                    if (myReader["MEM_ID"].ToString() != CurrentMem.Instance.User.mem_id)
+                    {
+                        memchatListview.Items.Add(item);                        
+                    }
                 }
                 myReader.Close();
                 LocalConn.Close();
             }
             catch (Exception e1)
             {
-                //Log.WriteLine("FrmLogin", e1.ToString());
-                MessageBox.Show(e1.ToString() + sql, "FrmLogin :: 목록조회오류!");
+                MessageBox.Show(e1.ToString() + sql, "회원 목록 조회오류!");
             }
         }
         #endregion
@@ -145,8 +144,7 @@ namespace chattingApp
             }
             catch (Exception e1)
             {
-                //Log.WriteLine("FrmMemchatList", e1.ToString());
-                MessageBox.Show(e1.ToString() + sql, "FrmMemchatList :: 채팅방목록조회오류!");
+                MessageBox.Show(e1.ToString() + sql, "채팅방 목록 조회오류!");
             }
         }
         #endregion
@@ -196,9 +194,55 @@ namespace chattingApp
         }
         #endregion
 
+        #region 목록창 닫으면 다 닫히고 프로그램 종료
         private void MemchatList_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Process.GetCurrentProcess().Kill();
+            try
+            {
+                //사용자가 닫고자 할 때
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    CsSaveClient.Instance._CsClientHandler.AppExit();
+                    // 다른 창들도 모두 종료하고 프로그램을 완전히 종료
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류가 발생했습니다: {ex.Message}");
+                // 폼을 닫지 않도록 설정
+                e.Cancel = true;
+            }
         }
+        #endregion
+
+        #region 시계
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            OleDbDataReader myReader;
+            string sql = null;
+            try
+            {
+                LocalConn = Common_DB.DBConnection();
+                LocalConn.Open();
+
+                sql = "SELECT SYSDATE AS CurrentDateTime FROM DUAL";
+                myReader = Common_DB.DataSelect(sql, LocalConn);
+
+                if (myReader.Read())
+                {
+                    DateTime currentDateTime = myReader.GetDateTime("CurrentDateTime");
+                    string formattedTime = currentDateTime.ToString("yyyy년MM월dd일\ntt hh:mm:ss");
+                    label1.Text = formattedTime;
+                }
+                myReader.Close();
+                LocalConn.Close();
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.ToString() + sql, "시계 오류!");
+            }
+        }
+        #endregion
     }
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
-using tbcomm.util;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
+﻿using System.Data.OleDb;
 
 namespace chattingApp
 {
@@ -38,7 +34,6 @@ namespace chattingApp
                 LocalConn.Open();
 
                 sql = "select MEM_ID, MEM_NAME, MEM_POS, MEM_DEPT from member ";
-                //sql += " where MEM_ID = " + "'" + TxtId.Text + "'";
                 myReader = Common_DB.DataSelect(sql, LocalConn);
 
                 while (myReader.Read())
@@ -48,14 +43,18 @@ namespace chattingApp
                     item.SubItems.Add(myReader["MEM_POS"].ToString());
                     item.SubItems.Add(myReader["MEM_DEPT"].ToString());
                     item.SubItems.Add(myReader["MEM_ID"].ToString());
-                    PickMemList.Items.Add(item);
+
+                    if (myReader["MEM_ID"].ToString() != CurrentMem.Instance.User.mem_id)
+                    {
+                        PickMemList.Items.Add(item);
+                    }
                 }
                 myReader.Close();
                 LocalConn.Close();
             }
             catch (Exception e1)
             {
-                MessageBox.Show(e1.ToString() + sql, "친구 목록조회오류!");
+                MessageBox.Show(e1.ToString() + sql, "회원 목록 조회오류!");
             }
         }
         #endregion
@@ -139,6 +138,12 @@ namespace chattingApp
                 item.BackColor = Color.Aquamarine;
             }
 
+            if (TxtChtNm.Text == "")
+            {
+                MessageBox.Show("채팅방 이름을 입력 하세요.");
+                return;
+            }
+
             CsCreateChtRm csCreateChtRm = new CsCreateChtRm();
             csCreateChtRm.rm_rm_name = TxtChtNm.Text;
             csCreateChtRm._rm_use_yn = "Y";
@@ -175,10 +180,7 @@ namespace chattingApp
                     }
                     finally
                     {
-                       // if (LocalConn != null && LocalConn.State == ConnectionState.Open)
-                       // {
-                            LocalConn.Close();
-                       // }
+                        LocalConn.Close();
                     }
                 }
                 string sql1 = "INSERT INTO INGCHAT " +
@@ -203,22 +205,12 @@ namespace chattingApp
                 }
                 finally
                 {
-                   // if (LocalConn != null && LocalConn.State == ConnectionState.Open)
-                   // {
-                        LocalConn.Close();
-                   // }
+                    LocalConn.Close();
                 }
             }
             this.Hide();
             chatRoom chatRoom = new chatRoom(room_id);
             chatRoom.Show();
-        }
-        #endregion
-
-        #region 채팅생성 버튼 활성화
-        private void TxtChtNm_TextChanged(object sender, EventArgs e)
-        {
-            MakechatRm.Enabled = true;
         }
         #endregion
     }

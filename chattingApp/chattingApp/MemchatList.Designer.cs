@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             BtnMemList = new Button();
@@ -37,17 +38,20 @@
             textBox1 = new TextBox();
             memchatListview = new ListView();
             BtnMkChat = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("굴림", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(30, 32);
+            label1.AutoEllipsis = true;
+            label1.Font = new Font("굴림", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(26, 25);
             label1.Name = "label1";
-            label1.Size = new Size(83, 34);
+            label1.Size = new Size(228, 88);
             label1.TabIndex = 1;
-            label1.Text = "친구";
+            label1.Text = "시간";
             // 
             // label2
             // 
@@ -93,7 +97,7 @@
             // button4
             // 
             button4.Enabled = false;
-            button4.Location = new Point(534, 51);
+            button4.Location = new Point(535, 86);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
             button4.Size = new Size(84, 31);
@@ -104,7 +108,7 @@
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new Point(298, 51);
+            textBox1.Location = new Point(299, 86);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(230, 27);
@@ -112,10 +116,10 @@
             // 
             // memchatListview
             // 
-            memchatListview.Location = new Point(186, 89);
+            memchatListview.Location = new Point(186, 121);
             memchatListview.Margin = new Padding(3, 4, 3, 4);
             memchatListview.Name = "memchatListview";
-            memchatListview.Size = new Size(433, 884);
+            memchatListview.Size = new Size(433, 852);
             memchatListview.TabIndex = 8;
             memchatListview.UseCompatibleStateImageBehavior = false;
             memchatListview.View = View.Details;
@@ -132,11 +136,27 @@
             BtnMkChat.UseVisualStyleBackColor = true;
             BtnMkChat.Click += BtnMkChat_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.logo_;
+            pictureBox1.Location = new Point(9, 875);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(168, 98);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // MemchatList
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(632, 991);
+            Controls.Add(pictureBox1);
             Controls.Add(BtnMkChat);
             Controls.Add(memchatListview);
             Controls.Add(textBox1);
@@ -156,6 +176,7 @@
             Text = "Chatting";
             FormClosing += MemchatList_FormClosing;
             Load += MemchatList_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,5 +191,7 @@
         private TextBox textBox1;
         private ListView memchatListview;
         private Button BtnMkChat;
+        private System.Windows.Forms.Timer timer1;
+        private PictureBox pictureBox1;
     }
 }
