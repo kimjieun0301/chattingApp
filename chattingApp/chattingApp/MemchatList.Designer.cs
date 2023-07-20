@@ -183,7 +183,7 @@
             Name = "MemchatList";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Chatting";
+            Text = "목록";
             FormClosing += MemchatList_FormClosing;
             Load += MemchatList_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

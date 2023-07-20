@@ -33,7 +33,6 @@
             TxtMessage = new TextBox();
             openFileDialog1 = new OpenFileDialog();
             chtmemList = new ListBox();
-            ChatNm = new Label();
             MsgList = new ListBox();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -85,16 +84,6 @@
             chtmemList.Size = new Size(491, 144);
             chtmemList.TabIndex = 9;
             // 
-            // ChatNm
-            // 
-            ChatNm.AutoSize = true;
-            ChatNm.Font = new Font("맑은 고딕", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            ChatNm.Location = new Point(16, 14);
-            ChatNm.Name = "ChatNm";
-            ChatNm.Size = new Size(118, 30);
-            ChatNm.TabIndex = 10;
-            ChatNm.Text = "chat name";
-            // 
             // MsgList
             // 
             MsgList.FormattingEnabled = true;
@@ -121,7 +110,6 @@
             ClientSize = new Size(521, 917);
             Controls.Add(pictureBox1);
             Controls.Add(MsgList);
-            Controls.Add(ChatNm);
             Controls.Add(chtmemList);
             Controls.Add(TxtMessage);
             Controls.Add(BtnSendPic);
@@ -146,7 +134,6 @@
         private TextBox TxtMessage;
         private OpenFileDialog openFileDialog1;
         private ListBox chtmemList;
-        private Label ChatNm;
         private ListBox MsgList;
         private PictureBox pictureBox1;
     }

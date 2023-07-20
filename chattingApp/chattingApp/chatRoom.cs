@@ -4,8 +4,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-
-
 namespace chattingApp
 {
     public partial class chatRoom : Form

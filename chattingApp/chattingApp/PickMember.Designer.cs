@@ -173,7 +173,7 @@
             Name = "PickMember";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
-            Text = "PickMember";
+            Text = "대화 상대 초대하기";
             Load += PickMember_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -170,7 +170,13 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MemProf";
+            RightToLeftLayout = true;
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "프로필";
             Load += MemProf_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
